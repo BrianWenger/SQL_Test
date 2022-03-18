@@ -18,4 +18,4 @@ The inventory table was queried to ensure each individual rental material had a 
 SELECT * FROM inventory
 */
 
--- Based off the description of the question, I could not see a need for the 'address' table as referenced in the question 3's “Tables used”, including it would have been more database intensive so the join was left out.
+-- Based off the description of the question, there was no need for the 'address' table as referenced in the question 3's “Tables used”, including it would have been more database intensive so the join was left out.
