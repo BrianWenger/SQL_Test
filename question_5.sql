@@ -38,7 +38,6 @@ GROUP BY 1
 ORDER BY 1) a
 
 /* 
-
 The data was observed to be substandard for use of a window function as is due to dates with no rentals. 
 Using a window function with missing dates would lead to inaccurate results, as such, the empty days needed to be created. 
 The empty days were observed to be 08-04-2020 through 08-16-2020 and 08-25-2020 through 08-31-2020. 
@@ -48,5 +47,19 @@ SELECT date(day) as day, avg(rentals) over(order by day, day rows between 6 prec
 FROM (SELECT date(rental_ts) as day, count(rental_ts) as rentals 
 	  FROM rental 
 	  WHERE date(rental_ts) between date('08-01-2020') and date('08-31-2020') group by 1) a
-
 */
+
+/*
+"prior 7 days" within the question guidlines was understood as prior 6 days and also including current date. 
+If we do need prior 7 days and not including current day the window function could be rewitten to include:
+
+between 7 preceding and 1 preceding
+*/
+
+/*
+Based off the description of the question, there was no need for the 'inventory' nor 'film' tables as referenced in the question 5's “Tables used”, 
+including it would have been more database intensive so the join was left out. The field required to pull a rolling average of rentals include a date
+and a count of rentals, both of which are included in the 'rentals' table
+*/
+
+
