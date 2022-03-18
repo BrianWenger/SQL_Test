@@ -18,7 +18,9 @@ and sum(CASE WHEN date(rental_ts) between (date('08-01-2020') + INTERVAL '1 MONT
 
 /*
 
-Intervals were used in the having clause to allow for quick expansion without the need to count out the days in each month, if for example we were to expand the months to include February (28 days) or September (30 days). The code could have been simplified by hard coding the dates as such:
+Intervals were used in the having clause to allow for quick expansion without the need to count out the days in each month, 
+if for example we were to expand the months to include February (28 days) or September (30 days). 
+The code could have been simplified by hard coding the dates as such:
 
 having sum(CASE WHEN date(rental_ts) between date('07-17-2020') and date('07-31-2020')) >= 2
 and sum(CASE WHEN date(rental_ts) between date('08-17-2020') and date('08-31-2020')) >= 2
