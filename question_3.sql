@@ -4,7 +4,7 @@ join payment p on r.rental_id = p.rental_id
 join inventory i on r.inventory_id = i.inventory_id
 where date(r.rental_ts) >= (select date(max(rental_ts) - INTERVAL '12 weeks') FROM rental)
 and i.store_id = 1
-group by 1
+group by 1;
 
 /*
 Data accuracy was validated through checking the weeks directly on ‘rental’ as there are weeks missing and the count of rentals from week to week varied to a large degree.
