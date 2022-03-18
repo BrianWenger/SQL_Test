@@ -6,8 +6,8 @@ select date(day) as day, avg(rentals) over(order by day, day rows between 6 prec
     		(date('08-02-2020')),
     		(date('08-03-2020')),
     		(date('08-04-2020')),
-   			(date('08-05-2020')),
-  		  	(date('08-06-2020')),
+   		(date('08-05-2020')),
+  		(date('08-06-2020')),
     		(date('08-07-2020')),
     		(date('08-08-2020')),
     		(date('08-09-2020')),
@@ -39,7 +39,10 @@ ORDER BY 1) a
 
 /* 
 
-The data was observed to be substandard for use of a window function as is due to dates with no rentals. Using a window function with missing dates would lead to inaccurate results, as such, the empty days needed to be created. The empty days were observed to be 08-04-2020 through 08-16-2020 and 08-25-2020 through 08-31-2020. If the data was standard and had data for each day a simplified code could be used:
+The data was observed to be substandard for use of a window function as is due to dates with no rentals. 
+Using a window function with missing dates would lead to inaccurate results, as such, the empty days needed to be created. 
+The empty days were observed to be 08-04-2020 through 08-16-2020 and 08-25-2020 through 08-31-2020. 
+If the data was standard and had data for each day a simplified code could be used:
 
 SELECT date(day) as day, avg(rentals) over(order by day, day rows between 6 preceding and current row) as rolling_avg
 FROM (SELECT date(rental_ts) as day, count(rental_ts) as rentals 
