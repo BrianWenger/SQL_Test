@@ -1,6 +1,6 @@
 /*
-The goal of this exercise is to determine which types of movies are trending in our 5 most actives cities. 
-We will then use this trending analysis to promote and draw in new customers through marketing and displaying of these trending categories.
+The goal of this exercise is to determine which types of movies are trending in our 5 most actives cities.
+We will then use this trending analysis to promote and draw in new customers through marketing and displaying these trending categories.
 */
 
 
@@ -16,21 +16,21 @@ group by 1
 order by 2 desc
 
 These are our most popular cities:
-city	count
-Aurora	50
-London	48
-Saint-Denis	46
-Cape Coral	45
-Tanza	4
+city    count
+Aurora    50
+London    48
+Saint-Denis    46
+Cape Coral    45
+Tanza    4
 
-A better way to check this would have been based on the store's location/city rather than the customer's, unfortunately the 'store' table is permission locked,
-in the same way that the country table is permissioned locked from an earlier question. Query below:
+A better way to check this would have been based on the store's location/city rather than the customer's, unfortunately, the 'store' table is permission locked,
+in the same way in which the country table is also permission locked from an earlier question. Query below:
 
 select * FROM store
 
 Error code:
 Bad Request
-permission denied for table store 
+permission denied for table store
 */
 
 /*
@@ -56,28 +56,28 @@ order by 2,4 desc)a
 where rn <=3
 
 These are our most popular categories in each of our top cities. These movies show which movies are currently trending higher than the others:
-city	category	rentals
-Aurora	Children	6
-Aurora	Documentary	5
-Aurora	Action	5
-Cape Coral	Animation	8
-Cape Coral	Family	7
-Cape Coral	Documentary	5
-London	Drama	6
-London	Children	5
-London	Sci-Fi	5
-Saint-Denis	Sci-Fi	7
-Saint-Denis	Family	6
-Saint-Denis	Travel	5
-Tanza	Foreign	5
-Tanza	Games	5
-Tanza	Family	4
+city    category    rentals
+Aurora    Children    6
+Aurora    Documentary    5
+Aurora    Action    5
+Cape Coral    Animation    8
+Cape Coral    Family    7
+Cape Coral    Documentary    5
+London    Drama    6
+London    Children    5
+London    Sci-Fi    5
+Saint-Denis    Sci-Fi    7
+Saint-Denis    Family    6
+Saint-Denis    Travel    5
+Tanza    Foreign    5
+Tanza    Games    5
+Tanza    Family    4
 */
 
 /*
-Finally, we will determine the average rental count per month, and can use this as a benchmark to see if any changes 
-we make in promotion and visibility of these categories (through better in-store positioning and display) effect the future sales. 
-We would hope that future sales would beat these numbers due to our changes. That is also to say we hope we are not losing 
+Finally, we will determine the average rental count per month and can use this as a benchmark to see if any changes
+we make in promotion and visibility of these categories (through better in-store positioning and display) affect future sales.
+We would hope that future sales would beat these numbers due to our changes. That is also to say we hope we are not losing
 customers over time to streaming services.
 
 We will run this for one city, ’Saint-Denis’, though the same could be run for each of the other top cities.
@@ -99,18 +99,17 @@ and date_part('year', rental_ts) = 2020
 group by 1
 order by 1
 
-date_part	rentals
-6	1
-7	9
-8	8
+date_part    rentals
+6    1
+7    9
+8    8
 
-It appears that the only months in which we have rentals are June, July and August. 
-Although not conclusive with the little data we are working with, June could be an outlier, 
+It appears that the only months in which we have rentals are June, July and August.
+Although not conclusive with the little data we are working with, June could be an outlier,
 whereas July and August are more in line with one another. If we have more than,
 
 (8+9)/2 = 8.5 rentals
 
-then we might be able to infer the better in-store placement and advertising 
+then we might be able to infer the better in-store placement and advertising
 did in fact have a positive impact on our rentals in these categories.
 */
-
