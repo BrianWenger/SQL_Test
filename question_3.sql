@@ -7,19 +7,19 @@ and i.store_id = 1
 group by 1;
 
 /*
-Data accuracy was validated through checking the weeks directly on ‘rental’ as there are weeks missing 
+Data accuracy was validated through checking the weeks directly on ‘rental’ as there are weeks missing
 and the count of rentals from week to week varied to a large degree.
 
 SELECT date_part('week', rental_ts) as week, count(rental_id) as rentals FROM rental group by 1 order by 1
 */
 
 /*
-The question states to "assume the most recent week was the week with the most recent rental", a lookup was done to find the most recent date using MAX, truncated to the first day of the week, and then using INTERVAL to backdate 12 weeks. 
-A condition was used to check the resulting date verses the rental timestamp (rental_ts) is either greater than or equal to that result date, giving the prior 12 weeks as well as the current week.
+The question states to "assume the most recent week was the week with the most recent rental", a lookup was done to find the most recent date using MAX, truncated to the first day of the week, and then using INTERVAL to backdate 12 weeks.
+A condition was used to check the resulting date versus the rental timestamp (rental_ts) is either greater than or equal to that result date, giving the prior 12 weeks as well as the current week.
 */
 
 /*
-The question states, "Exclude your results to only include rentals from store_id 1." This is a great place to groom the request to ensure the requestor only want store_id 1, 
+The question states, "Exclude your results to only include rentals from store_id 1." This is a great place to groom the request to ensure the requestor only want store_id 1,
 as this sentence is worded in a way that could lead to ambiguity.
 */
 
@@ -36,6 +36,6 @@ SELECT count(rental_id), count(distinct rental_id) from rental
 */
 
 /*
-Based off the description of the question, there was no need for the 'address' table as referenced in the question 3's “Tables used”, 
-including it would have been more database intensive so the join was left out.
+Based on the description of the question, there was no need for the 'address' table as referenced in question 3's “Tables used”,
+including it would have been more database-intensive so the join was left out.
 */
