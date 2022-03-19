@@ -7,5 +7,7 @@ order by 3 desc
 LIMIT 100;
 
 /* 
-Verified there do not appear to be duplicated records. Though the distinct count was don't to ensure no duplicates were counted.
+Verified there do not appear to be duplicated film records. Though the distinct count was don't to ensure no duplicates were counted. Query below:
+
+SELECT count(title) as films, count(distinct title) as distinct_films FROM film
 */
