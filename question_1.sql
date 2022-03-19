@@ -11,3 +11,10 @@ Verified there do not appear to be duplicated film records. Though the distinct 
 
 SELECT count(title) as films, count(distinct title) as distinct_films FROM film
 */
+
+/* 
+There do  appear to be duplicated actor records. For example, Susan Davis appears twice in the actor table under both actor_id 101 and 110. 
+Unless these are two diffect actors, the data should be validated. Query below:
+
+SELECT first_name, last_name, actor_id FROM actor WHERE first_name = 'SUSAN'
+*/
