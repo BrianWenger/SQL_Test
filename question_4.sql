@@ -19,11 +19,12 @@ and sum(CASE WHEN date(rental_ts) between (date('08-01-2020') + INTERVAL '1 MONT
 The question doesn't state to only include US cities, yet the requested columns appear to want to include only US cities. This would be another point
 instance to groom the request with the requestor. The query was narrowed to US only through finding the country_id of the US which is 103. 
 
-The country_id was assumed based on cities in the city table, as the country table was unaccesible.
+The country_id was assumed based on cities in the city table, as the country table was unaccesible. Query below:
 
-select country, country_id
-from country
+SELECT country, country_id
+FROM country
 
+Error message:
 Bad Request
 permission denied for table country
 */
@@ -39,7 +40,7 @@ and sum(CASE WHEN date(rental_ts) between date('08-17-2020') and date('08-31-202
 
 
 /*
-The data was validated for a single customer to ensure the aggregate data was correct
+The data was validated for a single customer to ensure the aggregate data was correct. Query below:
 
 SELECT r.customer_id as customer_id, rental_id, rental_ts
 FROM rental r
@@ -57,8 +58,7 @@ and r.customer_id = 273
 
 
 /*
-Proper Rating format was pulled from the proper table
+Proper Rating format was pulled from the proper table. Query below:
 
 SELECT rating FROM film group by 1
-
 */
