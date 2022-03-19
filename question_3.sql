@@ -24,15 +24,15 @@ as this sentence is worded in a way that could lead to ambiguity.
 */
 
 /*
-The inventory table was queried to ensure each individual rental material had a unique id to ensure the join was proper.
+The inventory table was queried to ensure each individual rental material had a unique id to ensure the join was proper. Query below:
 
-SELECT * FROM inventory
+SELECT count(inventory_id), count(distinct inventory_id) FROM inventory
 */
 
 /*
-The rental table was queried to ensure each individual rental had a unique id to ensure the join was proper.
+The rental table was queried to ensure each individual rental had a unique id to ensure the join was proper. Query below:
 
-SELECT * FROM rental
+SELECT count(rental_id), count(distinct rental_id) from rental
 */
 
 /*
