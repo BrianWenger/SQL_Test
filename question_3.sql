@@ -7,7 +7,8 @@ and i.store_id = 1
 group by 1;
 
 /*
-Data accuracy was validated through checking the weeks directly on ‘rental’ as there are weeks missing and the count of rentals from week to week varied to a large degree.
+Data accuracy was validated through checking the weeks directly on ‘rental’ as there are weeks missing 
+and the count of rentals from week to week varied to a large degree.
 
 SELECT date_part('week', rental_ts) as week, count(rental_id) as rentals FROM rental group by 1 order by 1
 */
@@ -18,4 +19,7 @@ The inventory table was queried to ensure each individual rental material had a 
 SELECT * FROM inventory
 */
 
--- Based off the description of the question, there was no need for the 'address' table as referenced in the question 3's “Tables used”, including it would have been more database intensive so the join was left out.
+/*
+Based off the description of the question, there was no need for the 'address' table as referenced in the question 3's “Tables used”, 
+including it would have been more database intensive so the join was left out.
+*/
