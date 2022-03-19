@@ -9,6 +9,6 @@ order by 2 desc;
 /* 
 
 As checked on question 1, checking for duplicate records through 'distinct' shows no duplicate records. 
-Though the distinct count was don't to ensure no duplicates were counted.
+Though the distinct count was included to ensure no duplicates were counted.
 
 */
