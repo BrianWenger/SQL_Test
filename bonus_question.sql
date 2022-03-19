@@ -1,6 +1,6 @@
 /*
-The goal of this exercise is to determine which types of movies are popular in our 5 most actives cities. 
-Using those cities, the goal is to determine the types of movies popular in each city for us to promote and draw in new customers. 
+The goal of this exercise is to determine which types of movies are trending in our 5 most actives cities. 
+We will then use this trending analysis to promote and draw in new customers through marketing and displaying of these trending categories.
 */
 
 
@@ -22,6 +22,15 @@ London	48
 Saint-Denis	46
 Cape Coral	45
 Tanza	4
+
+A better way to check this would have been based on the store's location/city rather than the customer's, unfortunately the 'store' table is permission locked,
+in the same way that the country table is permissioned locked from an earlier question. Query below:
+
+select * FROM store
+
+Error code:
+Bad Request
+permission denied for table store 
 */
 
 /*
@@ -46,7 +55,7 @@ group by 2,3
 order by 2,4 desc)a
 where rn <=3
 
-These are our most popular categories in each of our top cities:
+These are our most popular categories in each of our top cities. These movies show which movies are currently trending higher than the others:
 city	category	rentals
 Aurora	Children	6
 Aurora	Documentary	5
