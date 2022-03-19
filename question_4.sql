@@ -17,9 +17,9 @@ and sum(CASE WHEN date(rental_ts) between (date('08-01-2020') + INTERVAL '1 MONT
 
 /*
 The question doesn't state to only include US cities, yet the requested columns appear to want to include only US cities. This would be another point
-instance to groom the request with the requestor. The query was narrowed to US only through finding the country_id of the US which is 103. 
+instance to groom the request with the requestor. The query was narrowed to the US only through finding the country_id of the US which is 103.
 
-The country_id was assumed based on cities in the city table, as the country table was unaccesible. Query below:
+The country_id was assumed based on cities in the city table, as the country table was inaccessible. Query below:
 
 SELECT country, country_id
 FROM country
@@ -30,8 +30,8 @@ permission denied for table country
 */
 
 /*
-Intervals were used in the having clause to allow for quick expansion without the need to count out the days in each month, 
-if for example we were to expand the months to include February (28 days) or September (30 days). 
+Intervals were used in the having clause to allow for quick expansion without the need to count out the days in each month,
+if for example, we were to expand the months to include February (28 days) or September (30 days).
 The code could have been simplified by hard coding the dates as such:
 
 having sum(CASE WHEN date(rental_ts) between date('07-17-2020') and date('07-31-2020')) >= 2
